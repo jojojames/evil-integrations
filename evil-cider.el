@@ -75,5 +75,14 @@
     (kbd "u") #'cider-macroexpand-undo
     [remap undo] #'cider-macroexpand-undo))
 
+(with-eval-after-load 'cider-client
+  (evil-define-key 'normal cider-connections-buffer-mode-map
+    "d" #'cider-connections-make-default
+    "g" #'cider-connection-browser
+    "x" #'cider-connections-close-connection
+    (kbd "RET") #'cider-connections-goto-connection
+    "?" #'describe-mode
+    "H" #'describe-mode))
+
 (provide 'evil-cider)
 ;;; evil-cider.el ends here
