@@ -36,6 +36,9 @@
 (with-eval-after-load 'dired
   (require 'evil-dired))
 
+(with-eval-after-load 'edebug
+  (require 'evil-edebug))
+
 (with-eval-after-load 'ibuffer
   (require 'evil-ibuffer))
 

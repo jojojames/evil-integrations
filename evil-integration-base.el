@@ -47,5 +47,20 @@
                 (cmd (nth (+ 1 i) bindings)))
             `(evil-define-key ',mode ,keymap ,key ,cmd)))))))
 
+(defmacro evil-set-default-state-for-mode (mode state)
+  "Set the default STATE for MODE."
+  (let* ((mode-str (symbol-name mode))
+         (state-str (symbol-name state))
+         (defun-name (intern (format "evil-integration-%s-set-%s-default"
+                                     mode-str
+                                     state-str))))
+    `(progn
+       (defun ,defun-name (&rest _)
+         ,(format "Default `evil-state' of `%s' to '%s." mode-str state-str)
+         (if ,mode
+             (,(intern (format "evil-%s-state" state)))
+           (evil-normal-state)))
+       (advice-add #',mode :after #',defun-name))))
+
 (provide 'evil-integration-base)
 ;;; evil-integration-base.el ends here
