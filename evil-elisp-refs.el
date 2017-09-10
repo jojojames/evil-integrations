@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-elisp-refs.el --- Evil Integration for Elisp Refs -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: evil, elisp-refs, tools
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,26 +24,18 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; This package provides a sane set of defaults for `elisp-refs' when using
+;; `evil-mode'.
+(require 'evil-integration-base)
+(require 'elisp-refs)
 
-;;; Code:
-(with-eval-after-load 'ag
-  (require 'evil-ag))
+(evil-define-key 'normal elisp-refs-mode-map
+  (kbd "<tab>") #'elisp-refs-next-match
+  (kbd "<backtab>") #'elisp-refs-prev-match
+  (kbd "C-j") #'elisp-refs-next-match
+  (kbd "C-k") #'elisp-refs-prev-match
+  (kbd "q") #'kill-this-buffer
+  (kbd "RET") #'elisp-refs-visit-match)
 
-(with-eval-after-load 'cider
-  (require 'evil-cider))
-
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-elisp-refs)
+;;; evil-elisp-refs.el ends here
