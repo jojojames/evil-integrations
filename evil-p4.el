@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-p4.el --- Evil Integration for P4 -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: evil, p4, tools
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,32 +24,22 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; This package provides a sane set of defaults for `p4-mode' when using
+;; `evil-mode'.
+(require 'evil-integration-base)
+(require 'p4)
+
+(evil-define-key 'normal p4-basic-mode-map
+  [mouse-1] 'p4-buffer-mouse-clicked
+  "\t" 'p4-forward-active-link
+  "\e\t" 'p4-backward-active-link
+  [(shift tab)] 'p4-backward-active-link
+  "\C-m" 'p4-buffer-commands
+  "q" 'quit-window
+  "gr" 'revert-buffer
+  "k" 'p4-scroll-down-1-line
+  "j" 'p4-scroll-up-1-line)
 
 ;;; Code:
-(with-eval-after-load 'ag
-  (require 'evil-ag))
-
-(with-eval-after-load 'cider
-  (require 'evil-cider))
-
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
-
-(with-eval-after-load 'p4
-  (require 'evil-p4))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-p4)
+;;; evil-p4.el ends here
