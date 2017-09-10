@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-macrostep.el --- Evil Integration for Macrostep -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: evil, macrostep, tools
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,29 +24,20 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; This package provides a sane set of defaults for `macrostep-mode' when using
+;; `evil-mode'.
+(require 'evil-integration-base)
 
-;;; Code:
-(with-eval-after-load 'ag
-  (require 'evil-ag))
+;; Keymaps don't seem to be populated on first try.
+;; Force `evil' to normalize keymaps.
+(add-hook 'macrostep-mode-hook #'evil-normalize-keymaps)
 
-(with-eval-after-load 'cider
-  (require 'evil-cider))
+(evil-define-key 'normal macrostep-keymap
+  "q" 'macrostep-collapse-all
+  "e" 'macrostep-expand
+  "u" 'macrostep-collapse
+  "C-j" 'macrostep-next-macro
+  "C-k" 'macrostep-prev-macro)
 
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-macrostep)
+;;; evil-macrostep.el ends here
