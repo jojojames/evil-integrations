@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-elisp.el --- Integrate `emacs-lisp-mode' with `evil-mode'. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: emacs, evil
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,35 +24,15 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; Integrate `emacs-lisp-mode' with `evil-mode'.
 
 ;;; Code:
-(with-eval-after-load 'ag
-  (require 'evil-ag))
+(require 'evil-integration-base)
 
-(with-eval-after-load 'cider
-  (require 'evil-cider))
+(evil-bind-key
+ (normal)
+ (emacs-lisp-mode-map lisp-interaction-mode-map)
+ "\C-j" 'eval-print-last-sexp)
 
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-mode
-  (require 'evil-elisp))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
-
-(with-eval-after-load 'p4
-  (require 'evil-p4))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-elisp)
+;;; evil-elisp.el ends here
