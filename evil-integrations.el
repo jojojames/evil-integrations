@@ -54,5 +54,8 @@
 (with-eval-after-load 'p4
   (require 'evil-p4))
 
+(with-eval-after-load 'term
+  (require 'evil-ansi-term))
+
 (provide 'evil-integrations)
 ;;; evil-integrations.el ends here
