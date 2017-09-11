@@ -31,7 +31,7 @@
 (require 'evil)
 
 ;;;###autoload
-(defmacro evil-bind-key (modes keymaps &rest bindings)
+(defmacro +evil-bind-key (modes keymaps &rest bindings)
   "Macro to allow keymaps to be bound."
   `(progn
      ,@(cl-loop
@@ -47,7 +47,7 @@
                 (cmd (nth (+ 1 i) bindings)))
             `(evil-define-key ',mode ,keymap ,key ,cmd)))))))
 
-(defmacro evil-set-default-state-for-mode (mode state)
+(defmacro +evil-set-default-state-for-mode (mode state)
   "Set the default STATE for MODE."
   (let* ((mode-str (symbol-name mode))
          (state-str (symbol-name state))

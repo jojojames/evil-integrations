@@ -29,7 +29,7 @@
 ;;; Code:
 (require 'evil-integration-base)
 
-(evil-bind-key
+(+evil-bind-key
  (normal)
  (emacs-lisp-mode-map lisp-interaction-mode-map)
  "\C-j" 'eval-print-last-sexp)

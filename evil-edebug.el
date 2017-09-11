@@ -31,7 +31,7 @@
 (require 'edebug)
 (require 'evil-integration-base)
 
-(evil-set-default-state-for-mode edebug-mode motion)
+(+evil-set-default-state-for-mode edebug-mode motion)
 
 (evil-define-key 'motion 'edebug-mode-map
   ;; control
