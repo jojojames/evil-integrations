@@ -27,6 +27,8 @@
 ;; This package provides a sane set of defaults for `evil-mode'.
 
 ;;; Code:
+(require 'evil-integration-base)
+
 (with-eval-after-load 'ag
   (require 'evil-ag))
 
