@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-vlf.el --- Evil integration for vlf. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: emacs, evil, vlf
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,43 +24,21 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; Evil integration for `vlf'.
+(require 'evil-evilified-state)
+(require 'vlf)
 
 ;;; Code:
-(require 'evil-integration-base)
+(evilified-state-evilify-map
+  vlf-mode-map
+  :mode vlf-mode
+  :bindings
+  "C-j" 'vlf-next-batch
+  "C-k" 'vlf-prev-batch
+  "f" 'evil-find-char
+  "F" 'vlf-toggle-follow
+  "gr" vlf-revert
+  "e" vlf-ediff-buffers)
 
-(with-eval-after-load 'ag
-  (require 'evil-ag))
-
-(with-eval-after-load 'cider
-  (require 'evil-cider))
-
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-mode
-  (require 'evil-elisp))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
-
-(with-eval-after-load 'p4
-  (require 'evil-p4))
-
-(with-eval-after-load 'term
-  (require 'evil-ansi-term))
-
-(with-eval-after-load 'vlf
-  (require 'evil-vlf))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-vlf)
+;;; evil-vlf.el ends here
