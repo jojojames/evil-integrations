@@ -26,14 +26,16 @@
 ;;; Commentary:
 ;; This package provides a sane set of defaults for `p4-mode' when using
 ;; `evil-mode'.
-(require 'evil-integration-base)
+(require 'evil-evilified-state)
 (require 'p4)
 
-(evil-define-key 'normal p4-basic-mode-map
+(evilified-state-evilify-map
+  p4-basic-mode-map
+  :mode p4-basic-mode
+  :bindings
   [mouse-1] 'p4-buffer-mouse-clicked
-  "\t" 'p4-forward-active-link
-  "\e\t" 'p4-backward-active-link
-  [(shift tab)] 'p4-backward-active-link
+  "C-j" 'p4-forward-active-link
+  "C-k" 'p4-backward-active-link
   "\C-m" 'p4-buffer-commands
   "q" 'quit-window
   "gr" 'revert-buffer
