@@ -47,6 +47,9 @@
 (with-eval-after-load 'elisp-refs
   (require 'evil-elisp-refs))
 
+(with-eval-after-load 'help-mode
+  (require 'evil-help))
+
 (with-eval-after-load 'ibuffer
   (require 'evil-ibuffer))
 
