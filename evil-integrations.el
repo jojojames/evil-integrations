@@ -59,6 +59,9 @@
 (with-eval-after-load 'package
   (require 'evil-package-menu))
 
+(with-eval-after-load 'profiler
+  (require 'evil-profiler))
+
 (with-eval-after-load 'term
   (require 'evil-ansi-term))
 
