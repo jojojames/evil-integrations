@@ -34,6 +34,8 @@
   :mode compilation-mode
   :bindings
   "gr" 'recompile
+  "gj" 'compilation-next-error
+  "gk" 'compilation-previous-error
   "\C-j" 'compilation-next-error
   "\C-k" 'compilation-previous-error
   "\M-j" 'compilation-next-file

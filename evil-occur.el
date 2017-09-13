@@ -36,6 +36,8 @@
   :mode occur-mode
   :bindings
   "gr" 'revert-buffer
+  "gj" 'occur-next
+  "gk" 'occur-prev
   "H" 'describe-mode
   "\C-j" 'occur-next
   "\C-k" 'occur-prev)

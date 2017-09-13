@@ -35,6 +35,8 @@
   :bindings
   "H" 'describe-mode
   "gr" 'revert-buffer
+  "gj" 'profiler-report-next-entry
+  "gk" 'profiler-report-previous-entry
   "\C-j" 'profiler-report-next-entry
   "\C-k" 'profiler-report-previous-entry)
 

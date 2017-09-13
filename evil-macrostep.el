@@ -36,6 +36,8 @@
   "q" 'macrostep-collapse-all
   "e" 'macrostep-expand
   "u" 'macrostep-collapse
+  "gj" 'macrostep-next-macro
+  "gk" 'macrostep-prev-macro
   "C-j" 'macrostep-next-macro
   "C-k" 'macrostep-prev-macro)
 

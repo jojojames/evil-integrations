@@ -35,6 +35,8 @@
   :bindings
   ">" 'help-go-forward
   "<" 'help-go-back
+  "gj" 'help-go-forward
+  "gk" 'help-go-back
   "\C-j" 'help-go-forward
   "\C-k" 'help-go-back)
 

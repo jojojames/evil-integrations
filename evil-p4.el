@@ -34,11 +34,13 @@
   :mode p4-basic-mode
   :bindings
   [mouse-1] 'p4-buffer-mouse-clicked
-  "C-j" 'p4-forward-active-link
-  "C-k" 'p4-backward-active-link
+  "\C-j" 'p4-forward-active-link
+  "\C-k" 'p4-backward-active-link
   "\C-m" 'p4-buffer-commands
-  "q" 'quit-window
   "gr" 'revert-buffer
+  "gj" 'p4-forward-active-link
+  "gk" 'p4-backward-active-link
+  "q" 'quit-window
   "k" 'p4-scroll-down-1-line
   "j" 'p4-scroll-up-1-line)
 
