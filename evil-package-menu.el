@@ -1,4 +1,4 @@
-;;; evil-integrations.el --- Evil Integrations -*- lexical-binding: t -*-
+;;; evil-package-menu.el --- Evil integration for package-menu. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-integrations
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ag, tools
+;; Keywords: evil, emacs, package-menu
 ;; HomePage: https://github.com/jojojames/evil-integrations
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,46 +24,15 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a sane set of defaults for `evil-mode'.
+;; Evil integration for `package-menu-mode'.
 
 ;;; Code:
-(require 'evil-integration-base)
+(require 'evil-evilified-state)
+(require 'package)
 
-(with-eval-after-load 'ag
-  (require 'evil-ag))
+(evilified-state-evilify-map
+  package-menu-mode-map
+  :mode package-menu-mode)
 
-(with-eval-after-load 'cider
-  (require 'evil-cider))
-
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
-(with-eval-after-load 'elisp-mode
-  (require 'evil-elisp))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
-
-(with-eval-after-load 'p4
-  (require 'evil-p4))
-
-(with-eval-after-load 'package
-  (require 'evil-package-menu))
-
-(with-eval-after-load 'term
-  (require 'evil-ansi-term))
-
-(with-eval-after-load 'vlf
-  (require 'evil-vlf))
-
-(provide 'evil-integrations)
-;;; evil-integrations.el ends here
+(provide 'evil-package-menu)
+;;; evil-package-menu.el ends here
