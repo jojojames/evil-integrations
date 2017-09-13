@@ -35,6 +35,9 @@
 (with-eval-after-load 'cider
   (require 'evil-cider))
 
+(with-eval-after-load 'compile
+  (require 'evil-compile))
+
 (with-eval-after-load 'dired
   (require 'evil-dired))
 
