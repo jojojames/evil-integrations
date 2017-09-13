@@ -53,6 +53,11 @@
 (with-eval-after-load 'macrostep
   (require 'evil-macrostep))
 
+(if (<= emacs-major-version 25)
+    (require 'evil-occur)
+  (with-eval-after-load 'replace
+    (require 'evil-occur)))
+
 (with-eval-after-load 'p4
   (require 'evil-p4))
 
