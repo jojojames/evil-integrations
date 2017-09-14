@@ -56,6 +56,9 @@
 (with-eval-after-load 'ibuffer
   (require 'evil-ibuffer))
 
+(with-eval-after-load 'ivy
+  (require 'evil-ivy))
+
 (with-eval-after-load 'macrostep
   (require 'evil-macrostep))
 
