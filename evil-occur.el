@@ -35,6 +35,12 @@
 (evilified-state-evilify-map occur-mode-map
   :mode occur-mode
   :bindings
+  "w" 'evil-forward-word-begin
+  "e" 'evil-forward-word-end
+  "W" 'evil-forward-WORD-begin
+  "E" 'evil-forward-WORD-end
+  "b" 'evil-backward-word-begin
+  "B" 'evil-backward-WORD-begin
   "gr" 'revert-buffer
   "gj" 'occur-next
   "gk" 'occur-prev

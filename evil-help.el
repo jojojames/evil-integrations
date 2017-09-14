@@ -33,6 +33,12 @@
 (evilified-state-evilify-map help-mode-map
   :mode help-mode
   :bindings
+  "w" 'evil-forward-word-begin
+  "e" 'evil-forward-word-end
+  "W" 'evil-forward-WORD-begin
+  "E" 'evil-forward-WORD-end
+  "b" 'evil-backward-word-begin
+  "B" 'evil-backward-WORD-begin
   ">" 'help-go-forward
   "<" 'help-go-back
   "gj" 'help-go-forward
