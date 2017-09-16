@@ -82,6 +82,9 @@
 (with-eval-after-load 'pass
   (require 'evil-pass))
 
+(with-eval-after-load 'prodigy
+  (require 'evil-prodigy))
+
 (with-eval-after-load 'profiler
   (require 'evil-profiler))
 
