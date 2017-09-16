@@ -27,29 +27,22 @@
 ;; Evil integration for `pass-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'pass)
 
-(evilified-state-evilify-map
-  pass-mode-map
-  :mode pass-mode
-  :bindings
-  "y" #'pass-copy
-  "j" #'pass-next-entry
-  "k" #'pass-prev-entry
-  "\C-j" #'pass-next-directory
-  "\C-k" #'pass-prev-directory
-  "x" #'pass-kill
-  "s" #'isearch-forward
-  "?" #'describe-mode
-  "gr" #'pass-update-buffer
-  "$" 'evil-end-of-line
-  "^" 'evil-first-non-blank
-  "0" 'evil-digit-argument-or-evil-beginning-of-line
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ pass-mode-map
+ :mode pass-mode
+ :bindings
+ "y" #'pass-copy
+ "j" #'pass-next-entry
+ "k" #'pass-prev-entry
+ "\C-j" #'pass-next-directory
+ "\C-k" #'pass-prev-directory
+ "x" #'pass-kill
+ "s" #'isearch-forward
+ "?" #'describe-mode
+ "gr" #'pass-update-buffer)
 
 (provide 'evil-pass)
 ;;; evil-pass.el ends here

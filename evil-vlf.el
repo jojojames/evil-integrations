@@ -25,20 +25,20 @@
 
 ;;; Commentary:
 ;; Evil integration for `vlf'.
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'vlf)
 
 ;;; Code:
-(evilified-state-evilify-map
-  vlf-mode-map
-  :mode vlf-mode
-  :bindings
-  "C-j" 'vlf-next-batch
-  "C-k" 'vlf-prev-batch
-  "f" 'evil-find-char
-  "F" 'vlf-toggle-follow
-  "gr" vlf-revert
-  "e" vlf-ediff-buffers)
+(+evilify-map
+ vlf-mode-map
+ :mode vlf-mode
+ :bindings
+ "C-j" 'vlf-next-batch
+ "C-k" 'vlf-prev-batch
+ "f" 'evil-find-char
+ "F" 'vlf-toggle-follow
+ "gr" vlf-revert
+ "e" vlf-ediff-buffers)
 
 (provide 'evil-vlf)
 ;;; evil-vlf.el ends here

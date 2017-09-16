@@ -27,33 +27,26 @@
 ;; Evil integration for `prodigy'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'prodigy)
 
-(evilified-state-evilify-map
-  prodigy-mode-map
-  :mode prodigy-mode
-  :bindings
-  "j" 'prodigy-next
-  "n" 'prodigy-prev
-  "gr" 'prodigy-restart
-  "`" 'prodigy-display-process
-  "o" 'prodigy-browse
-  "f t" 'prodigy-add-tag-filter
-  "f n" 'prodigy-add-name-filter
-  "F" 'prodigy-clear-filters
-  "J m" 'prodigy-jump-magit
-  "J d" 'prodigy-jump-dired
-  "\C-j" 'prodigy-next-with-status
-  "\C-k" 'prodigy-prev-with-status
-  "y" 'prodigy-copy-cmd
-  "$" 'evil-end-of-line
-  "^" 'evil-first-non-blank
-  "0" 'evil-digit-argument-or-evil-beginning-of-line
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ prodigy-mode-map
+ :mode prodigy-mode
+ :bindings
+ "j" 'prodigy-next
+ "n" 'prodigy-prev
+ "gr" 'prodigy-restart
+ "`" 'prodigy-display-process
+ "o" 'prodigy-browse
+ "f t" 'prodigy-add-tag-filter
+ "f n" 'prodigy-add-name-filter
+ "F" 'prodigy-clear-filters
+ "J m" 'prodigy-jump-magit
+ "J d" 'prodigy-jump-dired
+ "\C-j" 'prodigy-next-with-status
+ "\C-k" 'prodigy-prev-with-status
+ "y" 'prodigy-copy-cmd)
 
 (provide 'evil-prodigy)
 ;;; evil-prodigy.el ends here

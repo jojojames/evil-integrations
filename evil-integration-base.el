@@ -29,6 +29,7 @@
 
 ;;; Code:
 (require 'evil)
+(require 'evil-evilified-state)
 
 ;;;###autoload
 (defmacro +evil-bind-key (modes keymaps &rest bindings)
@@ -61,6 +62,20 @@
              (,(intern (format "evil-%s-state" state)))
            (evil-normal-state)))
        (advice-add #',mode :after #',defun-name))))
+
+(defmacro +evilify-map (map &rest props)
+  "`evilified-state-evilify-map' with additional bindings.
+This assumes the :bindings key is at the end."
+  `(evilified-state-evilify-map
+     ,map
+     ,@props
+     "$" 'evil-end-of-line
+     "^" 'evil-first-non-blank
+     "0" 'evil-digit-argument-or-evil-beginning-of-line
+     "b" 'evil-backward-word-begin
+     "B" 'evil-backward-WORD-begin
+     "w" 'evil-forward-word-begin
+     "W" 'evil-forward-WORD-begin))
 
 (provide 'evil-integration-base)
 ;;; evil-integration-base.el ends here

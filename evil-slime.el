@@ -27,34 +27,26 @@
 ;; Evil integration for `slime-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'slime)
 
-(evilified-state-evilify-map
-  sldb-mode-map
-  :mode sldb-mode
-  :bindings
-  "H" 'describe-mode
-  "\C-j" 'sldb-down
-  "\C-k" 'sldb-up
-  "\M-j" 'sldb-details-down
-  "\M-k" 'sldb-details-up
-  "gb" 'sldb-break-on-return
-  "gB" 'sldb-break-with-default-debugger
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ sldb-mode-map
+ :mode sldb-mode
+ :bindings
+ "H" 'describe-mode
+ "\C-j" 'sldb-down
+ "\C-k" 'sldb-up
+ "\M-j" 'sldb-details-down
+ "\M-k" 'sldb-details-up
+ "gb" 'sldb-break-on-return
+ "gB" 'sldb-break-with-default-debugger)
 
-(evilified-state-evilify-map
-  slime-inspector-mode-map
-  :mode slime-inspector-mode
-  :bindings
-  "gr" 'slime-inspector-reinspect
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ slime-inspector-mode-map
+ :mode slime-inspector-mode
+ :bindings
+ "gr" 'slime-inspector-reinspect)
 
 (provide 'evil-slime)
 ;;; evil-slime.el ends here

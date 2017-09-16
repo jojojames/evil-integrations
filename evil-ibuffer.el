@@ -28,27 +28,23 @@
 ;; `evil-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'ibuffer)
 
-(evilified-state-evilify-map
-  ibuffer-mode-map
-  :mode ibuffer-mode
-  :bindings
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin
-  "gb" 'ibuffer-bury-buffer
-  "gB" 'ibuffer-copy-buffername-as-kill
-  "gw" 'ibuffer-copy-filename-as-kill
-  "gW" 'ibuffer-do-view-and-eval
-  "gr" 'ibuffer-update
-  "gx" 'ibuffer-kill-line
-  "\C-j" 'ibuffer-forward-filter-group
-  "\C-k" 'ibuffer-backward-filter-group ; Originally `ibuffer-kill-line'.
-  "gj" 'ibuffer-forward-filter-group
-  "gk" 'ibuffer-backward-filter-group)
+(+evilify-map
+ ibuffer-mode-map
+ :mode ibuffer-mode
+ :bindings
+ "gb" 'ibuffer-bury-buffer
+ "gB" 'ibuffer-copy-buffername-as-kill
+ "gw" 'ibuffer-copy-filename-as-kill
+ "gW" 'ibuffer-do-view-and-eval
+ "gr" 'ibuffer-update
+ "gx" 'ibuffer-kill-line
+ "\C-j" 'ibuffer-forward-filter-group
+ "\C-k" 'ibuffer-backward-filter-group ; Originally `ibuffer-kill-line'.
+ "gj" 'ibuffer-forward-filter-group
+ "gk" 'ibuffer-backward-filter-group)
 
 (provide 'evil-ibuffer)
 ;;; evil-ibuffer.el ends here

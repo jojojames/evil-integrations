@@ -27,27 +27,23 @@
 ;; Evil integration for `help-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'help-mode)
 
-(evilified-state-evilify-map help-mode-map
-  :mode help-mode
-  :bindings
-  "Y" 'evil-yank-line
-  "y" 'evil-yank
-  "0" 'evil-digit-argument-or-evil-beginning-of-line
-  "w" 'evil-forward-word-begin
-  "e" 'evil-forward-word-end
-  "W" 'evil-forward-WORD-begin
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  ">" 'help-go-forward
-  "<" 'help-go-back
-  "gj" 'help-go-forward
-  "gk" 'help-go-back
-  "\C-j" 'help-go-forward
-  "\C-k" 'help-go-back)
+(+evilify-map
+ help-mode-map
+ :mode help-mode
+ :bindings
+ "Y" 'evil-yank-line
+ "y" 'evil-yank
+ "e" 'evil-forward-word-end
+ "E" 'evil-forward-WORD-end
+ ">" 'help-go-forward
+ "<" 'help-go-back
+ "gj" 'help-go-forward
+ "gk" 'help-go-back
+ "\C-j" 'help-go-forward
+ "\C-k" 'help-go-back)
 
 (provide 'evil-help)
 ;;; evil-help.el ends here

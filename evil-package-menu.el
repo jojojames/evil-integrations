@@ -27,12 +27,12 @@
 ;; Evil integration for `package-menu-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'package)
 
-(evilified-state-evilify-map
-  package-menu-mode-map
-  :mode package-menu-mode)
+(+evilify-map
+ package-menu-mode-map
+ :mode package-menu-mode)
 
 (provide 'evil-package-menu)
 ;;; evil-package-menu.el ends here

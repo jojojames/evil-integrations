@@ -27,20 +27,16 @@
 ;; Evil integration for `flycheck-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'flycheck)
 
-(evilified-state-evilify-map flycheck-error-list-mode-map
-  :mode flycheck-error-list-mode
-  :bindings
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin
-  "gr" #'flycheck-error-list-check-source
-  "RET" 'flycheck-error-list-goto-error
-  "j" 'flycheck-error-list-next-error
-  "k" 'flycheck-error-list-previous-error)
+(+evilify-map
+ flycheck-error-list-mode-map
+ :mode flycheck-error-list-mode
+ :bindings
+ "gr" #'flycheck-error-list-check-source
+ "j" 'flycheck-error-list-next-error
+ "k" 'flycheck-error-list-previous-error)
 
 (provide 'evil-flycheck)
 ;;; evil-flycheck.el ends here

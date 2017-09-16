@@ -26,23 +26,23 @@
 ;;; Commentary:
 ;; This package provides a sane set of defaults for `p4-mode' when using
 ;; `evil-mode'.
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'p4)
 
-(evilified-state-evilify-map
-  p4-basic-mode-map
-  :mode p4-basic-mode
-  :bindings
-  [mouse-1] 'p4-buffer-mouse-clicked
-  "\C-j" 'p4-forward-active-link
-  "\C-k" 'p4-backward-active-link
-  "\C-m" 'p4-buffer-commands
-  "gr" 'revert-buffer
-  "gj" 'p4-forward-active-link
-  "gk" 'p4-backward-active-link
-  "q" 'quit-window
-  "k" 'p4-scroll-down-1-line
-  "j" 'p4-scroll-up-1-line)
+(+evilify-map
+ p4-basic-mode-map
+ :mode p4-basic-mode
+ :bindings
+ [mouse-1] 'p4-buffer-mouse-clicked
+ "\C-j" 'p4-forward-active-link
+ "\C-k" 'p4-backward-active-link
+ "\C-m" 'p4-buffer-commands
+ "gr" 'revert-buffer
+ "gj" 'p4-forward-active-link
+ "gk" 'p4-backward-active-link
+ "q" 'quit-window
+ "k" 'p4-scroll-down-1-line
+ "j" 'p4-scroll-up-1-line)
 
 ;;; Code:
 (provide 'evil-p4)

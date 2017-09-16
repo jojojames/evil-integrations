@@ -27,70 +27,54 @@
 ;; Evil integration for `ggtags-mode'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'ggtags)
 
-(evilified-state-evilify-map
-  ggtags-global-mode-map
-  :mode ggtags-global-mode)
+(+evilify-map
+ ggtags-global-mode-map
+ :mode ggtags-global-mode)
 
-(evilified-state-evilify-map
-  ggtags-view-search-history-mode-map
-  :bindings
-  "j" 'ggtags-view-search-history-prev
-  "\C-j" 'ggtags-view-search-history-prev
-  "k" 'ggtags-view-search-history-next
-  "\C-k" 'ggtags-view-search-history-next
-  "x" 'ggtags-view-search-history-kill
-  "r" 'ggtags-save-to-register
-  "\r" 'ggtags-view-search-history-action
-  "e" 'evil-forward-word-end
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ ggtags-view-search-history-mode-map
+ :bindings
+ "j" 'ggtags-view-search-history-prev
+ "\C-j" 'ggtags-view-search-history-prev
+ "k" 'ggtags-view-search-history-next
+ "\C-k" 'ggtags-view-search-history-next
+ "x" 'ggtags-view-search-history-kill
+ "r" 'ggtags-save-to-register
+ "\r" 'ggtags-view-search-history-action
+ "e" 'evil-forward-word-end
+ "E" 'evil-forward-WORD-end)
 
-(evilified-state-evilify-map
-  ggtags-view-tag-history-mode-map
-  :bindings
-  "\C-j" 'next-error-no-select
-  "\C-k" 'previous-error-no-select
-  "e" 'evil-forward-word-end
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ ggtags-view-tag-history-mode-map
+ :bindings
+ "\C-j" 'next-error-no-select
+ "\C-k" 'previous-error-no-select
+ "e" 'evil-forward-word-end
+ "E" 'evil-forward-WORD-end)
 
-(evilified-state-evilify-map
-  ggtags-view-tag-history-mode-map
-  :bindings
-  "\C-j" 'next-error-no-select
-  "\C-k" 'previous-error-no-select
-  "e" 'evil-forward-word-end
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ ggtags-view-tag-history-mode-map
+ :bindings
+ "\C-j" 'next-error-no-select
+ "\C-k" 'previous-error-no-select
+ "e" 'evil-forward-word-end
+ "E" 'evil-forward-WORD-end)
 
-(evilified-state-evilify-map
-  ggtags-navigation-map
-  :bindings
-  "\C-j" 'next-error
-  "\C-k" 'previous-error
-  "\M-j" 'ggtags-navigation-next-file
-  "\M-k" 'ggtags-navigation-previous-file
-  "\M-=" 'ggtags-navigation-start-file
-  "\M->" 'ggtags-navigation-last-error
-  "\M-<" 'first-error
-  "e" 'evil-forward-word-end
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "w" 'evil-forward-word-begin
-  "W" 'evil-forward-WORD-begin)
+(+evilify-map
+ ggtags-navigation-map
+ :bindings
+ "\C-j" 'next-error
+ "\C-k" 'previous-error
+ "\M-j" 'ggtags-navigation-next-file
+ "\M-k" 'ggtags-navigation-previous-file
+ "\M-=" 'ggtags-navigation-start-file
+ "\M->" 'ggtags-navigation-last-error
+ "\M-<" 'first-error
+ "e" 'evil-forward-word-end
+ "E" 'evil-forward-WORD-end)
 
 (provide 'evil-ggtags)
 ;;; evil-ggtags.el ends here

@@ -25,20 +25,20 @@
 
 ;;; Commentary:
 ;; Evil integration for `profiler'.
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 (require 'profiler)
 
 ;;; Code:
-(evilified-state-evilify-map
-  profiler-report-mode-map
-  :mode profiler-report-mode
-  :bindings
-  "H" 'describe-mode
-  "gr" 'revert-buffer
-  "gj" 'profiler-report-next-entry
-  "gk" 'profiler-report-previous-entry
-  "\C-j" 'profiler-report-next-entry
-  "\C-k" 'profiler-report-previous-entry)
+(+evilify-map
+ profiler-report-mode-map
+ :mode profiler-report-mode
+ :bindings
+ "H" 'describe-mode
+ "gr" 'revert-buffer
+ "gj" 'profiler-report-next-entry
+ "gk" 'profiler-report-previous-entry
+ "\C-j" 'profiler-report-next-entry
+ "\C-k" 'profiler-report-previous-entry)
 
 (provide 'evil-profiler)
 ;;; evil-profiler.el ends here

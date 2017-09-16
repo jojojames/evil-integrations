@@ -27,7 +27,7 @@
 ;; Evil integration for `occur'.
 
 ;;; Code:
-(require 'evil-evilified-state)
+(require 'evil-integration-base)
 
 (when (> emacs-major-version 25)
   (require 'replace))
