@@ -33,6 +33,9 @@
 (evilified-state-evilify-map help-mode-map
   :mode help-mode
   :bindings
+  "Y" 'evil-yank-line
+  "y" 'evil-yank
+  "0" 'evil-digit-argument-or-evil-beginning-of-line
   "w" 'evil-forward-word-begin
   "e" 'evil-forward-word-end
   "W" 'evil-forward-WORD-begin
