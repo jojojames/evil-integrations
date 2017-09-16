@@ -88,6 +88,9 @@
 (with-eval-after-load 'profiler
   (require 'evil-profiler))
 
+(with-eval-after-load 'slime
+  (require 'evil-slime))
+
 (with-eval-after-load 'term
   (require 'evil-ansi-term))
 
