@@ -62,6 +62,9 @@
 (with-eval-after-load 'ivy
   (require 'evil-ivy))
 
+(with-eval-after-load 'ggtags
+  (require 'evil-ggtags))
+
 (with-eval-after-load 'macrostep
   (require 'evil-macrostep))
 
