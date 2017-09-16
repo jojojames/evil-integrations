@@ -32,21 +32,32 @@
 (when (> emacs-major-version 25)
   (require 'replace))
 
-(evilified-state-evilify-map occur-mode-map
-  :mode occur-mode
-  :bindings
-  "w" 'evil-forward-word-begin
-  "e" 'evil-forward-word-end
-  "W" 'evil-forward-WORD-begin
-  "E" 'evil-forward-WORD-end
-  "b" 'evil-backward-word-begin
-  "B" 'evil-backward-WORD-begin
-  "gr" 'revert-buffer
-  "gj" 'occur-next
-  "gk" 'occur-prev
-  "H" 'describe-mode
+(setq evil-emacs-state-modes
+      (remove 'occur-mode evil-emacs-state-modes))
+
+(evil-define-key 'normal occur-mode-map
+  ;; Like `wdired-mode'.
+  "\C-x\C-q" 'occur-edit-mode
+
+  [mouse-2] 'occur-mode-mouse-goto
+  "\C-c\C-c" 'occur-mode-goto-occurrence
+  "\C-m" 'occur-mode-goto-occurrence
+  "o" 'occur-mode-goto-occurrence-other-window
+  "\C-o" 'occur-mode-display-occurrence
   "\C-j" 'occur-next
-  "\C-k" 'occur-prev)
+  "\C-k" 'occur-prev
+  "r" 'occur-rename-buffer
+  "c" 'clone-buffer
+  "\C-c\C-f" 'next-error-follow-minor-mode)
+
+(evil-define-key 'normal occur-edit-mode-map
+  ;; Like `wdired-mode'.
+  "\C-x\C-q" 'occur-cease-edit
+
+  [mouse-2] 'occur-mode-mouse-goto
+  "\C-c\C-c" 'occur-cease-edit
+  "\C-o" 'occur-mode-display-occurrence
+  "\C-c\C-f" 'next-error-follow-minor-mode)
 
 (provide 'evil-occur)
 ;;; evil-occur.el ends here
