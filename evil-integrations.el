@@ -79,6 +79,9 @@
 (with-eval-after-load 'package
   (require 'evil-package-menu))
 
+(with-eval-after-load 'pass
+  (require 'evil-pass))
+
 (with-eval-after-load 'profiler
   (require 'evil-profiler))
 
