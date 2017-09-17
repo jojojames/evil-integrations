@@ -97,5 +97,8 @@
 (with-eval-after-load 'vlf
   (require 'evil-vlf))
 
+(with-eval-after-load 'xref
+  (require 'evil-xref))
+
 (provide 'evil-integrations)
 ;;; evil-integrations.el ends here
