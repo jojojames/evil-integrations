@@ -1,6 +1,42 @@
 * Quick Setup
-#+begin_src emacs-lisp :tangle yes
+  #+begin_src emacs-lisp :tangle yes
 (use-package evil-integrations
   :load-path "~/.emacs.d/fork/evil-integrations/"
   :ensure nil)
-#+end_src
+  #+end_src
+* Strategy
+  For keymaps with not many keys bound, use the evil-define-key and supplement the keymap with original commands.
+  #+begin_src emacs-lisp :tangle yes
+    (defvar slime-popup-buffer-mode-map
+      (let ((map (make-sparse-keymap)))
+        (define-key map (kbd "q") 'quit-window)
+        ;;("\C-c\C-z" . slime-switch-to-output-buffer)
+        (define-key map (kbd "M-.") 'slime-edit-definition)
+        map))
+
+    (evil-define-key 'normal slime-popup-buffer-mode-map
+      (kbd "q") 'quit-window
+      (kbd "M-.") 'slime-edit-definition)
+  #+end_src
+
+  For keymaps that have an editing component to them, use evil-define-key.
+  #+begin_src emacs-lisp :tangle yes
+    (evil-add-hjkl-bindings ag-mode-map 'normal
+      "gg" #'evil-goto-first-line
+      "gr" #'recompile
+      "gj" #'compilation-next-error
+      "gk" #'compilation-previous-error
+      "\C-j" #'compilation-next-error
+      "\C-k" #'compilation-previous-error
+      "0" #'evil-digit-argument-or-evil-beginning-of-line
+      "n" #'evil-search-next
+      "N" #'evil-search-previous)
+  #+end_src
+
+  For keymaps with many keys bound, use +evilify-map to use original keymap and then supplement them with additional evil keys.
+  #+begin_src emacs-lisp :tangle yes
+    (+evilify-map
+     package-menu-mode-map
+     :mode package-menu-mode
+     "\C-h" #'help-command)
+  #+end_src
