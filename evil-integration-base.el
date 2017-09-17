@@ -72,6 +72,8 @@ This assumes the :bindings key is at the end."
        ,@props
        ,@(unless contains-bindings
            '(:bindings))
+       "#" 'evil-search-word-backward
+       "*" 'evil-search-forward
        "$" 'evil-end-of-line
        "^" 'evil-first-non-blank
        "0" 'evil-digit-argument-or-evil-beginning-of-line
