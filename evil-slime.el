@@ -48,5 +48,9 @@
  :bindings
  "gr" 'slime-inspector-reinspect)
 
+(evil-define-key 'normal slime-popup-buffer-mode-map
+  (kbd "q") 'quit-window
+  (kbd "M-.") 'slime-edit-definition)
+
 (provide 'evil-slime)
 ;;; evil-slime.el ends here
