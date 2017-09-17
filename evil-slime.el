@@ -52,5 +52,7 @@
   (kbd "q") 'quit-window
   (kbd "M-.") 'slime-edit-definition)
 
+(add-hook 'slime-popup-buffer-mode-hook #'evil-normalize-keymaps)
+
 (provide 'evil-slime)
 ;;; evil-slime.el ends here
