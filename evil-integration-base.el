@@ -66,16 +66,19 @@
 (defmacro +evilify-map (map &rest props)
   "`evilified-state-evilify-map' with additional bindings.
 This assumes the :bindings key is at the end."
-  `(evilified-state-evilify-map
-     ,map
-     ,@props
-     "$" 'evil-end-of-line
-     "^" 'evil-first-non-blank
-     "0" 'evil-digit-argument-or-evil-beginning-of-line
-     "b" 'evil-backward-word-begin
-     "B" 'evil-backward-WORD-begin
-     "w" 'evil-forward-word-begin
-     "W" 'evil-forward-WORD-begin))
+  (let ((contains-bindings (plist-get props :bindings)))
+    `(evilified-state-evilify-map
+       ,map
+       ,@props
+       ,@(unless contains-bindings
+           '(:bindings))
+       "$" 'evil-end-of-line
+       "^" 'evil-first-non-blank
+       "0" 'evil-digit-argument-or-evil-beginning-of-line
+       "b" 'evil-backward-word-begin
+       "B" 'evil-backward-WORD-begin
+       "w" 'evil-forward-word-begin
+       "W" 'evil-forward-WORD-begin)))
 
 (provide 'evil-integration-base)
 ;;; evil-integration-base.el ends here

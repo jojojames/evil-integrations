@@ -31,14 +31,14 @@
 (require 'ag)
 (require 'evil-integration-base)
 
-(evil-add-hjkl-bindings ag-mode-map 'normal)
-
-(evil-define-key 'normal ag-mode-map
+(evil-add-hjkl-bindings ag-mode-map 'normal
+  "gg" #'evil-goto-first-line
   "gr" #'recompile
   "gj" #'compilation-next-error
   "gk" #'compilation-previous-error
   "\C-j" #'compilation-next-error
   "\C-k" #'compilation-previous-error
+  "0" #'evil-digit-argument-or-evil-beginning-of-line
   "n" #'evil-search-next
   "N" #'evil-search-previous)
 

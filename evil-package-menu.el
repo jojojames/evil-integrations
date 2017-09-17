@@ -32,7 +32,8 @@
 
 (+evilify-map
  package-menu-mode-map
- :mode package-menu-mode)
+ :mode package-menu-mode
+ "\C-h" #'help-command)
 
 (provide 'evil-package-menu)
 ;;; evil-package-menu.el ends here
