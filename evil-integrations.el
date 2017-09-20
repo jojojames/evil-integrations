@@ -68,6 +68,9 @@
 (with-eval-after-load 'macrostep
   (require 'evil-macrostep))
 
+(with-eval-after-load 'org
+  (require 'evil-org))
+
 (if (<= emacs-major-version 25)
     (require 'evil-occur)
   (with-eval-after-load 'replace
