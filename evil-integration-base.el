@@ -72,6 +72,7 @@ This assumes the :bindings key is at the end."
        ,@props
        ,@(unless contains-bindings
            '(:bindings))
+       "\C-h" 'help-command
        "#" 'evil-search-word-backward
        "*" 'evil-search-forward
        "$" 'evil-end-of-line
