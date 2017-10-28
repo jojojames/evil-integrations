@@ -1,8 +1,8 @@
 * Quick Setup
   #+begin_src emacs-lisp :tangle yes
-(use-package evil-integrations
-  :load-path "~/.emacs.d/fork/evil-integrations/"
-  :ensure nil)
+    (use-package evil-integrations
+      :load-path "~/.emacs.d/fork/evil-integrations/"
+      :ensure nil)
   #+end_src
 * Strategy
   For keymaps with not many keys bound, use the evil-define-key and supplement the keymap with original commands.
