@@ -32,6 +32,9 @@
 (with-eval-after-load 'ag
   (require 'evil-ag))
 
+(with-eval-after-load 'bookmark
+  (require 'evil-bookmarks))
+
 (with-eval-after-load 'cider
   (require 'evil-cider))
 
