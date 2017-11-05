@@ -29,82 +29,14 @@
 ;;; Code:
 (require 'evil-integration-base)
 
-(with-eval-after-load 'ag
-  (require 'evil-ag))
-
-(with-eval-after-load 'bookmark
-  (require 'evil-bookmarks))
-
-(with-eval-after-load 'cider
-  (require 'evil-cider))
-
-(with-eval-after-load 'compile
-  (require 'evil-compile))
-
-(with-eval-after-load 'dired
-  (require 'evil-dired))
-
-(with-eval-after-load 'edebug
-  (require 'evil-edebug))
-
 (with-eval-after-load 'elisp-mode
   (require 'evil-elisp))
-
-(with-eval-after-load 'elisp-refs
-  (require 'evil-elisp-refs))
-
-(with-eval-after-load 'flycheck
-  (require 'evil-flycheck))
-
-(with-eval-after-load 'help-mode
-  (require 'evil-help))
-
-(with-eval-after-load 'ibuffer
-  (require 'evil-ibuffer))
-
-(with-eval-after-load 'ivy
-  (require 'evil-ivy))
-
-(with-eval-after-load 'ggtags
-  (require 'evil-ggtags))
-
-(with-eval-after-load 'macrostep
-  (require 'evil-macrostep))
 
 (with-eval-after-load 'org
   (require 'evil-org))
 
-(if (<= emacs-major-version 25)
-    (require 'evil-occur)
-  (with-eval-after-load 'replace
-    (require 'evil-occur)))
-
-(with-eval-after-load 'p4
-  (require 'evil-p4))
-
-(with-eval-after-load 'package
-  (require 'evil-package-menu))
-
-(with-eval-after-load 'pass
-  (require 'evil-pass))
-
-(with-eval-after-load 'prodigy
-  (require 'evil-prodigy))
-
 (with-eval-after-load 'profiler
   (require 'evil-profiler))
-
-(with-eval-after-load 'slime
-  (require 'evil-slime))
-
-(with-eval-after-load 'term
-  (require 'evil-ansi-term))
-
-(with-eval-after-load 'vlf
-  (require 'evil-vlf))
-
-(with-eval-after-load 'xref
-  (require 'evil-xref))
 
 (provide 'evil-integrations)
 ;;; evil-integrations.el ends here
