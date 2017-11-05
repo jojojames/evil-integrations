@@ -1,3 +1,5 @@
+* Status
+  Look at https://github.com/jojojames/evil-collection instead.
 * Quick Setup
   #+begin_src emacs-lisp :tangle yes
     (use-package evil-integrations
