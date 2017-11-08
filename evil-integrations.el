@@ -35,8 +35,5 @@
 (with-eval-after-load 'org
   (require 'evil-org))
 
-(with-eval-after-load 'profiler
-  (require 'evil-profiler))
-
 (provide 'evil-integrations)
 ;;; evil-integrations.el ends here
